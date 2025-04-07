@@ -4,7 +4,9 @@ import re
 
 # Read the CSV file
 df = pd.read_csv('raw_battlelogs.csv')
-
+# Remove duplicate rows from the DataFrame
+df = df.drop_duplicates()
+df = df.reset_index(drop=True)
 # Extract the specified columns
 columns_to_extract = ['event_mode', 'event_map', 'battle_mode', 'battle_type', 'battle_result', 'battle_teams']
 extracted_data = df[columns_to_extract]
